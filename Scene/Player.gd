@@ -19,7 +19,7 @@ var last_velocity = Vector3.ZERO
 
 # Slide variable
 var slide_timer = 0.0
-var slide_timer_max = 1.0
+var slide_timer_max = 1.25
 var slide_vector = Vector2.ZERO
 var slide_speed = 5
 
@@ -28,9 +28,9 @@ var head_bobbing_sprinting_speed = 22
 var head_bobbing_walking_speed = 14
 var head_bobbing_crouching_speed = 10
 
-var head_bobbing_crouching_intensity = 0.05
-var head_bobbing_sprinting_intensity = 0.2
-var head_bobbing_walking_intensity = 0.01
+var head_bobbing_crouching_intensity = 0.005
+var head_bobbing_sprinting_intensity = 0.1
+var head_bobbing_walking_intensity = 0.05
 
 var head_bobbing_vector = Vector2.ZERO
 var head_bobbing_index = 0.0
