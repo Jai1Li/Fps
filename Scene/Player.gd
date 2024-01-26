@@ -36,7 +36,7 @@ var head_bobbing_vector = Vector2.ZERO
 var head_bobbing_index = 0.0
 var head_bobbing_current_intensity = 0.0
 
-var free_look_tilt_amount = 5
+var free_look_tilt_amount = 3
 
 # States
 var walking = false
@@ -121,11 +121,7 @@ func _physics_process(delta):
 	# Handle free look
 	if Input.is_action_pressed("free_look") || sliding:
 		free_looking = true
-		
-		if sliding:
-			eyes.rotation.z = lerp(eyes.rotation.z, -deg_to_rad(7.0), delta * lerp_speed)
-		else:
-			eyes.rotation.z = -deg_to_rad(neck.rotation.y * free_look_tilt_amount)
+		eyes.rotation.z = -deg_to_rad(neck.rotation.y * free_look_tilt_amount)
 	else:
 		free_looking = false
 		neck.rotation.y = lerp(neck.rotation.y, 0.0, delta * lerp_speed)
@@ -158,6 +154,7 @@ func _physics_process(delta):
 	else:
 		eyes.position.y = lerp(eyes.position.y, 0.0, delta * lerp_speed)
 		eyes.position.x = lerp(eyes.position.x, 0.0, delta * lerp_speed)
+		
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
